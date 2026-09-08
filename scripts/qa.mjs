@@ -25,7 +25,7 @@ await page.screenshot({ path: `${OUT}/01-empty.png` })
 // Load the fixture through the real file input.
 const input = await page.$('input[type=file]')
 await input.uploadFile(FIXTURE)
-await page.waitForFunction(() => !document.querySelector('[aria-label="Add a screenshot"]'), { timeout: 5000 })
+await page.waitForFunction(() => !document.querySelector('[aria-label="Add a screenshot or video"]'), { timeout: 5000 })
 await new Promise((r) => setTimeout(r, 300))
 await page.screenshot({ path: `${OUT}/02-loaded.png` })
 
@@ -63,7 +63,7 @@ const b64 = await page.evaluate(async () => {
 })
 writeFileSync(`${OUT}/06-preview-canvas.png`, Buffer.from(b64, 'base64'))
 
-const size = await page.$eval('header p.tabular-nums, p.tabular-nums', (el) => el.textContent)
+const size = await page.$eval('header p.tabular-nums', (el) => el.textContent)
 
 console.log(JSON.stringify({ matchedBackground: bg, sizeLine: size, errors }, null, 2))
 await browser.close()

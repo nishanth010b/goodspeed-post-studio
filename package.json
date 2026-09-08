@@ -7,7 +7,8 @@
     "dev": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "qa": "node scripts/qa.mjs"
+    "qa": "node scripts/qa.mjs",
+    "qa:video": "node scripts/qa-video.mjs"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",
