@@ -3,3 +3,5 @@ dist
 qa-out
 .DS_Store
 *.local
+.vercel
+.env*
